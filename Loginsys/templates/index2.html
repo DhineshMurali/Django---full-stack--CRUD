@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Detail Page</title>
+  </head>
+  <body>
+    <center>
+      <h3>View your records here</h3>
+      <br />
+      <table border="1">
+        <tr>
+          <th>ID</th>
+          <th>UserName</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Martial Status</th>
+        </tr>
+        {%for displayrec in editUpdateRecord%}
+        <tr>
+          <td>{{displayrec.id}}</td>
+          <td>{{displayrec.Username}}</td>
+          <td>{{displayrec.Email}}</td>
+          <td>{{displayrec.Age}}</td>
+          <td>{{displayrec.Gender}}</td>
+          <td>{{displayrec.MartialStatus}}</td>
+          <td><a href="/edit/{{displayrec.id}}">Edit</a></td>
+        </tr>
+        {%endfor%}
+      </table>
+    </center>
+  </body>
+</html>

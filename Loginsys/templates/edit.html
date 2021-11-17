@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit your record<title>
+</head>
+<body>
+<center>
+<h1>Edit and Update record</h1>
+<br/>
+<form method="POST" action="/update/{{editUpdateRecord.id}}">
+{% csrf_token %}
+<table border="1">
+ <tr>
+ <td>ID</td>
+ <td><input type="number" name="id" value="{{editUpdateRecord.id}}" readonly></td>
+ </tr>
+ <tr>
+ <td>UserName</td>
+ <td><input type="text" name="Username" value="{{editUpdateRecord.Username}}"></td>
+ </tr>
+ <tr>
+ <td>Email</td>
+ <td><input type="text" name="Email" value="{{editUpdateRecord.Email}}"></td>
+ </tr>
+ <tr>
+ <td>Age</td>
+ <td><input type="text" name="Age" value="{{editUpdateRecord.Age}}"></td>
+ </tr>
+ <tr>
+      <td>gender</td>
+      <td>
+        <input type="radio" value="{{editUpdateRecord.Gender}}" name="Gender" />Male |
+        <input type="radio" value="{{editUpdateRecord.Gender}}" name="Gender" />Female
+      </td>
+    </tr>
+    <tr>
+      <td>MartialStatus</td>
+      <td>
+        <select name="MartialStatus">
+          <option value="{{editUpdateRecord.MartialStatus}}">Married</option>
+          <option value="{{editUpdateRecord.MartialStatus}}">UnMarried</option>
+          <option value="{{editUpdateRecord.MartialStatus}}">Divorced</option>
+        </select>
+      </td>
+    </tr>
+</table>
+</form>
+<input type="submit" value="Update"/>
+<a href="{%url 'Logout'%}">Logout</a>
+{%if messages%}
+{%for updaterecord in messages%}
+<h3 style="color:green;">{{updaterecord}} is updated successfully </h3>
+{%endfor%}
+{%endif%}
+</center>
+</body>
+
+</html>

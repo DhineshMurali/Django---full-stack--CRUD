@@ -1,0 +1,15 @@
+<h1>Index Page</h1>
+<br />
+{% if request.session.Email %}
+<h1>WELCOME</h1>
+{{request.session.Email}} &nbsp;&nbsp; {{request.session.Username}} &nbsp;&nbsp;
+{{request.session.MartialStatus}}
+<br />
+<a href="{%url 'dispData'%}">Click here to see all records</a> |
+<a href="{%url 'Logout'%}">Logout</a>
+{%else%}
+<b>
+  <a href="{% url 'Reg' %}">Registration</a>|
+  <a href="{% url 'Loginpage' %}">Login</a>
+</b>
+{%endif %}
